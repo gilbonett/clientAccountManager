@@ -9,9 +9,14 @@ import { Head, Link, useForm } from '@inertiajs/react';
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
+        last_name:'',
         email: '',
         password: '',
         password_confirmation: '',
+        cpf: '',
+        phone: '',
+        cep: '',
+        birth: '',
     });
 
     useEffect(() => {
@@ -48,6 +53,23 @@ export default function Register() {
                     <InputError message={errors.name} className="mt-2" />
                 </div>
 
+                <div>
+                    <InputLabel htmlFor="last_name" value="Last Name" />
+
+                    <TextInput
+                        id="last_name"
+                        name="last_name"
+                        value={data.last_name}
+                        className="mt-1 block w-full"
+                        autoComplete="last_name"
+                        isFocused={true}
+                        onChange={(e) => setData('last_name', e.target.value)}
+                        required
+                    />
+
+                    <InputError message={errors.last_name} className="mt-2" />
+                </div>
+
                 <div className="mt-4">
                     <InputLabel htmlFor="email" value="Email" />
 
@@ -63,6 +85,71 @@ export default function Register() {
                     />
 
                     <InputError message={errors.email} className="mt-2" />
+                </div>
+
+                <div className="mt-4">
+                    <InputLabel htmlFor="cpf" value="CPF" />
+
+                    <TextInput
+                        id="cpf"
+                        name="cpf"
+                        value={data.cpf}
+                        className="mt-1 block w-full"
+                        autoComplete="cpf"
+                        onChange={(e) => setData('cpf', e.target.value)}
+                        required
+                    />
+
+                    <InputError message={errors.cpf} className="mt-2" />
+                </div>
+
+                <div className="mt-4">
+                    <InputLabel htmlFor="phone" value="Telefone" />
+
+                    <TextInput
+                        id="phone"
+                        name="phone"
+                        value={data.phone}
+                        className="mt-1 block w-full"
+                        autoComplete="telefone"
+                        onChange={(e) => setData('phone', e.target.value)}
+                        required
+                    />
+
+                    <InputError message={errors.phone} className="mt-2" />
+                </div>
+
+                <div className="mt-4">
+                    <InputLabel htmlFor="cep" value="CEP" />
+
+                    <TextInput
+                        id="cep"
+                        name="cep"
+                        value={data.cep}
+                        className="mt-1 block w-full"
+                        autoComplete="CEP"
+                        onChange={(e) => setData('cep', e.target.value)}
+                        required
+                    />
+
+                    <InputError message={errors.cep} className="mt-2" />
+                </div>
+
+                <div className="mt-4">
+                    <InputLabel htmlFor="birth" value="Data de Nascimento" />
+
+                    <TextInput
+                        id="birth"
+                        type="date"
+                        name="birth"
+                        value={data.birth}
+                        className="mt-1 block w-full"
+                        autoComplete="Data de Nascimento"
+                        onChange={(e) => setData('birth', e.target.value)}
+                        required
+                    />
+
+                    <InputError message={errors.birth} className="mt-2" />
                 </div>
 
                 <div className="mt-4">
@@ -104,11 +191,11 @@ export default function Register() {
                         href={route('login')}
                         className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
-                        Already registered?
+                        Esta Registrado?
                     </Link>
 
                     <PrimaryButton className="ml-4" disabled={processing}>
-                        Register
+                        Registro
                     </PrimaryButton>
                 </div>
             </form>
