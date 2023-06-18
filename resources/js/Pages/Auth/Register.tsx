@@ -60,7 +60,7 @@ export default function Register() {
 
     return (
         <GuestLayout>
-            <Head title="Register" />
+            <Head title="Registro" />
 
             <form onSubmit={submit}>
                 <div>
@@ -187,7 +187,7 @@ export default function Register() {
                 
 
                 <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
+                    <InputLabel htmlFor="password" value="Senha" />
 
                     <TextInput
                         id="password"
@@ -204,7 +204,7 @@ export default function Register() {
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel htmlFor="password_confirmation" value="Confirm Password" />
+                    <InputLabel htmlFor="password_confirmation" value="Confirma Senha" />
 
                     <TextInput
                         id="password_confirmation"
