@@ -1,4 +1,5 @@
-import { useEffect, FormEventHandler } from 'react';
+
+import { useState, useEffect, FormEventHandler } from 'react';
 import GuestLayout from '@/Layouts/GuestLayout';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
@@ -18,6 +19,29 @@ export default function Register() {
         cep: '',
         birth: '',
     });
+    
+
+    function formatarCEP(event: React.FormEvent<HTMLInputElement> ) {
+        
+        const input = event.currentTarget;
+        let cep = input.value.replace(/\D/g, '');
+    
+        if (cep.length === 8) {
+        cep = cep.replace(/(\d{5})(\d{3})/, '$1-$2');
+        }
+    
+        input.value = cep;
+    }
+
+    function formatarCPF(event: React.FormEvent<HTMLInputElement>) {
+        const input = event.currentTarget;
+        let cpf = input.value.replace(/\D/g, '');
+    
+        if (cpf.length === 11) {
+        cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+        }
+        input.value = cpf;
+    }
 
     useEffect(() => {
         return () => {
@@ -25,11 +49,14 @@ export default function Register() {
         };
     }, []);
 
+
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
-
         post(route('register'));
+    
     };
+
+    const hasBirthError = errors.hasOwnProperty('birth');
 
     return (
         <GuestLayout>
@@ -94,6 +121,9 @@ export default function Register() {
                         id="cpf"
                         name="cpf"
                         value={data.cpf}
+                        pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                        onInput={formatarCPF}
+                        maxLength={14}
                         className="mt-1 block w-full"
                         autoComplete="cpf"
                         onChange={(e) => setData('cpf', e.target.value)}
@@ -124,10 +154,14 @@ export default function Register() {
 
                     <TextInput
                         id="cep"
+                        type='text'
+                        pattern="\d{5}-\d{3}"
                         name="cep"
                         value={data.cep}
                         className="mt-1 block w-full"
                         autoComplete="CEP"
+                        maxLength={8}
+                        onInput={formatarCEP}
                         onChange={(e) => setData('cep', e.target.value)}
                         required
                     />
@@ -148,9 +182,9 @@ export default function Register() {
                         onChange={(e) => setData('birth', e.target.value)}
                         required
                     />
-
                     <InputError message={errors.birth} className="mt-2" />
                 </div>
+                
 
                 <div className="mt-4">
                     <InputLabel htmlFor="password" value="Password" />

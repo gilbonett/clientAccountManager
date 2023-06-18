@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
@@ -32,15 +33,33 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:'.User::class,
+            'name' => 'required|string|max:100',
+            'last_name' => 'required|string|max:100',
+            'email' => 'required|string|email|max:100|unique:'.User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'cpf' => 'required|string|max:255|unique:users',
+            'cpf' => 'required|string|max:15|unique:users',
             'phone' => 'required|string|max:255',
-            'cep' => 'required|string|max:255',
+            'cep' => 'required|string|max:9',
             'birth' => 'required|string|max:255',
         ]);
+
+        $cep = str_replace('-', '', $request->cep);
+        $cepFormatted = substr($cep, 0, 5) . '-' . substr($cep, 5);
+        $response = Http::get("https://viacep.com.br/ws/$cepFormatted/json/");
+
+        if ($response->failed()) {
+            return redirect()->back()->withErrors(['cep' => 'Falha ao consultar o CEP.']);
+        }
+
+        $data = $response->json();
+
+        if (isset($data['erro']) && $data['erro']) {
+            return redirect()->back()->withErrors(['cep' => 'CEP não encontrado.']);
+        }
+
+        if (!isset($data['uf']) || strtoupper($data['uf']) !== 'AM') {
+            return redirect()->back()->withErrors(['cep' => 'Apenas CEPs do estado do Amazonas são permitidos.']);
+        }
 
         $user = User::create([
             'name' => $request->name,
@@ -49,7 +68,7 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'cpf' => $request->cpf,
             'phone' => $request->phone,
-            'cep' => $request->cep,
+            'cep' => $cepFormatted,
             'birth' => $request->birth,
         ]);
 
