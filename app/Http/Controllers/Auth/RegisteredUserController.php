@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -40,7 +40,18 @@ class RegisteredUserController extends Controller
             'cpf' => 'required|string|max:15|unique:users',
             'phone' => 'required|string|max:255',
             'cep' => 'required|string|max:9',
-            'birth' => 'required|string|max:255',
+            'birth' => [
+                'required',
+                'string',
+                'max:255',
+                function ($attribute, $value, $fail) {
+                    $birthdate = Carbon::createFromFormat('Y-m-d', $value);
+                    $age = $birthdate->age;
+                    if ($age < 18) {
+                        $fail('Você deve ter pelo menos 18 anos para se registrar.');
+                    }
+                },
+            ],
         ]);
 
         $cep = str_replace('-', '', $request->cep);
