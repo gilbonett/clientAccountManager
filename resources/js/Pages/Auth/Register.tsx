@@ -64,7 +64,7 @@ export default function Register() {
 
             <form onSubmit={submit}>
                 <div>
-                    <InputLabel htmlFor="name" value="Name" />
+                    <InputLabel htmlFor="name" value="Nome" />
 
                     <TextInput
                         id="name"
@@ -81,7 +81,7 @@ export default function Register() {
                 </div>
 
                 <div>
-                    <InputLabel htmlFor="last_name" value="Last Name" />
+                    <InputLabel htmlFor="last_name" value="Sobrenome" />
 
                     <TextInput
                         id="last_name"
