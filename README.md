@@ -90,10 +90,10 @@ O projeto foi criado con Laravel, Sail,  Compose, PostgreSQL.
 
 Após clonar/baixar o projeto, abra um terminal, navegue até a pasta /clientAccountManager e rode o seguinte comando para instalar todas as dependências necessárias:
 
-    ```sh
+   
      sail composer install
-    ```
     
+
 ## Instalação Front-End
 
 O projeto foi criado com Vite, React 18, TypeScript, TailwindCSS 3, Utilizando IntertiaJs.
@@ -106,9 +106,9 @@ sail npm install
     
 Após isso, você pode rodar a aplicação em modo de desenvolvimento com o seguinte comando:
 
-    ```sh
+   
     sail npm run dev
-    ```
+  
     
 A aplicação irá rodar no endereço http://localhost.
 
