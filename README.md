@@ -33,7 +33,7 @@ O **Client Account Manager** é um site onde você pode se cadastrar, atualizar 
 
 - Uma página inicial que mostrará informaçoes do site, acceso ao login e cadastro de usarios;
 
-- Uma página de registo , mosntrando um formulario de registro com validaciones feitas no backend;
+- Uma página de registo , mostrando um formulario de registro com validaciones feitas no backend;
 
 - Uma página de login , mostrando um formulario para entrar en su perfil; 
 
