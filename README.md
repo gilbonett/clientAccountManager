@@ -41,7 +41,7 @@ O **Client Account Manager** é um site onde você pode se cadastrar, atualizar 
 
 <h2 id= modelo> Modelagem do Banco de Dados</h2>
 
-[](https://github.com/gilbonett/clientAccountManager/assets/101142283/326c3c39-b00b-4146-881d-cd127b28d99f)
+![](https://user-images.githubusercontent.com/101142283/246878382-326c3c39-b00b-4146-881d-cd127b28d99f.png)
 
 <h2 id= Tec>Tecnologias</h2>
 
