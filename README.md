@@ -1,66 +1,170 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<h1 align="center">
+    <br>
+    Client Account Manager
+</h1>
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
 </p>
 
-## About Laravel
+| :placard: Challenge |     |
+| -------------  | --- |
+| :sparkles: Nome        | **Client Account Manager**
+| :label: Tecnologias Front-end | React, Vite, Typescript, Tailwind CSS
+| :label: Tecnologias Back-end | Laravel , Sail, Compose, PostgreSQL
+| :rocket: URL         | https://app/
+| :fire: Desafio     | Cadastro de Clientes e Suporte de Canais de Atendimento
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<h3>Tópicos</h3>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<a href="#Descrip">Descrição do projeto</a>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<a href="#modelo">Modelagem do Banco de dados</a>
 
-## Learning Laravel
+<a href="#Tec">Tecnologias</a>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<a href="#Pre">Pre-requisitos</a>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+<a href="#Dev">Desenvolvedor</a>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<h2 id= Descrip> O que é Client Account Manager?</h2>
 
-## Laravel Sponsors
+O **Client Account Manager** é um site onde você pode se cadastrar, atualizar seus dados, ver seu perfil e excluir.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- Uma página inicial que mostrará informaçoes do site, acceso ao login e cadastro de usarios;
 
-### Premium Partners
+- Uma página de registo , mosntrando um formulario de registro com validaciones feitas no backend;
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- Uma página de login , mostrando um formulario para entrar en su perfil; 
 
-## Contributing
+**Atenção:** O site é **responsivo** para dar aos usuarios a facilidade de usar através de dispositivos mobiles.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<h2 id= modelo> Modelagem do Banco de Dados</h2>
 
-## Code of Conduct
+![](https://github.com/gilbonett/server/assets/101142283/d789e55b-fbc4-4ee6-8e3c-0ddd54b06f45)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<h2 id= Tec>Tecnologias</h2>
 
-## Security Vulnerabilities
+As principais tecnologias utilizadas foram:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+**Front-end**
+- node v18.14.0;
+- npm v9.3.1;
+- React v18.2.0;
+- jwt-decode 3.1.2;
+- axios 1.4.0;
+- React Router v6.8.1;
 
-## License
+**Back-end**
+- laravel v10.10;
+- sail v1.18;
+- inertiajs/inertia-laravel: v0.6.3;
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<h2 id= Pre>Passo a passo para Rodar o Projeto</h2>
+
+## Passo a passo para Instalar o projeto
+**È necesario ter WSL instalado na maquina e Docker , ja que o Laravel Sail é compatível com macOS, Linux e Windows (via WSL2 ).**
+
+Clone o projeto desde o terminal WSL
+```sh
+git clone https://github.com/gilbonett/clientAccountManager.git
+```
+
+```sh
+cd clientAccountManager/
+```
+
+Para iniciar todos os contêineres do Docker em segundo plano, você pode iniciar o Sail no modo "separado":
+```sh
+./vendor/bin/sail up -d
+```
+
+Para parar todos os contêineres, basta pressionar Control + C para interromper a execução do contêiner. Ou, se os contêineres estiverem sendo executados em segundo plano, você pode usar o stop comando:
+```sh
+sail stop
+```
+
+## Instalação Back-End
+
+O projeto foi criado con Laravel, Sail,  Compose, PostgreSQL. 
+
+Após clonar/baixar o projeto, abra um terminal, navegue até a pasta /clientAccountManager e rode o seguinte comando para instalar todas as dependências necessárias:
+
+    ```sh
+     sail composer install
+    ```
+    
+## Instalação Front-End
+
+O projeto foi criado com Vite, React 18, TypeScript, TailwindCSS 3, Utilizando IntertiaJs.
+
+Após clonar/baixar o projeto, abra um terminal, navegue até a pasta /clientAccountManager e rode o seguinte comando para instalar todas as dependências necessárias:
+
+```sh
+sail npm install
+```
+    
+Após isso, você pode rodar a aplicação em modo de desenvolvimento com o seguinte comando:
+
+    ```sh
+    sail npm run dev
+    ```
+    
+A aplicação irá rodar no endereço http://localhost.
+
+
+È necesario gerar o KEY com esse comodando e prencher no arquivo .env
+Gere a key do projeto Laravel
+```sh
+sail artisan key:generate
+```
+
+Acesse o projeto mediante uma IDE, eu usei Visual Studio Code
+
+Atualize essas variáveis de ambiente no arquivo .env 
+```dosini
+APP_NAME=Laravel
+APP_ENV=local
+APP_KEY= sail artisan key:generate
+APP_DEBUG=true
+APP_URL=http://localhost
+
+LOG_CHANNEL=stack
+LOG_DEPRECATIONS_CHANNEL=null
+LOG_LEVEL=debug
+
+DB_CONNECTION=pgsql
+DB_HOST=pgsql
+DB_PORT=5432
+DB_DATABASE=nome-do-banco
+DB_USERNAME=username
+DB_PASSWORD=password
+```
+
+A aplicação irá rodar no endereço https://localhost
+
+<h2 id= Dev>Desenvolvedor</h2>
+<table>
+  <tr>
+    <td>
+      <table>
+        <tr>
+          <td align="center">
+            <a href="https://github.com/gilbonett">
+              <img src="https://avatars.githubusercontent.com/u/101142283?s=400&u=65a54baa757bd9fd2fc3507447850d1f071002c5&v=4" width="150px;" alt="Pedro Github Photo"/>
+            </a>
+            <br>
+            <a href="https://www.linkedin.com/in/gilbonett/">
+              <sub>
+                <b>Pedro Gil Bonett</b>
+              </sub>
+            </a>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td>
+     
+</table>
+
+
